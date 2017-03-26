@@ -48,23 +48,19 @@
 \n          { /*new line*/ }
 [ \t\v\f] { /* eat useless characters */ }
 
-<<EOF>> { return 'EOF'; }
 
 /lex
 
-%left '+' '-'
-%left '*' '/'
-%left '^'
 
 %%
 
 Programa
-  : DeclFuncVar DeclProg EOF
+  : DeclFuncVar DeclProg
   ;
 
 DeclFuncVar
   : Tipo ID DeclVar ';' DeclFuncVar
-  | Tipo ID '['INTCONST']' DeclVar ';' DEclFuncVar
+  | Tipo ID '['INTCONST']' DeclVar ';' DeclFuncVar
   | Tipo ID DeclFunc DeclFuncVar
   |
   ;
@@ -92,7 +88,7 @@ ListaParametrosCont
   : Tipo ID
   | Tipo ID '['']'
   | Tipo ID ',' ListaParametrosCont
-  | Tipo ID '['']' ',' Lista ParametrosCont
+  | Tipo ID '['']' ',' ListaParametrosCont
   ;
 
 Bloco
@@ -136,7 +132,8 @@ Expr
 
 AssignExpr
   : CondExpr
-  | LValueExpr '=' AssignExpr
+  | ID '=' AssignExpr
+  | ID '[' Expr ']' '=' AssignExpr
   ;
 
 CondExpr
@@ -156,7 +153,7 @@ AndExpr
 
 EqExpr
   : EqExpr '==' DesigExpr
-  | EqExpr '!=' DesignExpr
+  | EqExpr '!=' DesigExpr
   | DesigExpr
   ;
 
@@ -188,7 +185,7 @@ UnExpr
   ;
 
 LValueExpr
-  : ID '['Expr']'
+  : ID '[' Expr ']'
   | ID
   ;
 
