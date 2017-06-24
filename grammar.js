@@ -146,7 +146,7 @@ case 12: case 36: case 37:
 break;
 case 13:
 
-        id=['id-node', {type:$$[$0-1],name:$$[$0]}];
+        id=['notype-id-node', {type:$$[$0-1],name:$$[$0]}]; //###  ALTERE AQUI PARA COMPILAR PARA LINGUAGENS QUE DECLARAM VARIAVEI EM PARAMETROS, id-node
         this.$=['listaparametros-node',{},id];
     
 break;
@@ -158,7 +158,7 @@ case 14:
 break;
 case 15:
 
-        id=['id-node', {type:$$[$0-3],name:$$[$0-2]}];
+        id=['notype-id-node', {type:$$[$0-3],name:$$[$0-2]}];
         this.$=['listaparametroscont-node',{},id,$$[$0]];
     
 break;
@@ -228,7 +228,7 @@ case 29:
 break;
 case 30:
 
-      expr=['comando-expr-node',{},$$[$0-1]]
+      expr=['comando-expr-vector-node',{},$$[$0-1]]
       this.$=['comando-escreva-node',{},expr];
     
 break;

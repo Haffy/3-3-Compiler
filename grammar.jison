@@ -105,9 +105,11 @@ dif-node v
 'negation-node' v
 'no-node' v
 'access-vector-node' v
-'function-node'
-'string-node'
-'listexpr-node'
+'function-node' v
+'string-node' v
+'listexpr-node' v
+comando-expr-vector-nodev
+null v
 */
 Programa
   : DeclFuncVar DeclProg
@@ -184,7 +186,7 @@ ListaParametros
 ListaParametrosCont
   : Tipo ID
     {{
-        id=['id-node', {type:$1,name:$2}];
+        id=['notype-id-node', {type:$1,name:$2}]; //###  ALTERE AQUI PARA COMPILAR PARA LINGUAGENS QUE DECLARAM VARIAVEI EM PARAMETROS, id-node
         $$=['listaparametros-node',{},id];
     }}
   | Tipo ID '['']'
@@ -194,7 +196,7 @@ ListaParametrosCont
     }}
   | Tipo ID ',' ListaParametrosCont
     {{
-        id=['id-node', {type:$1,name:$2}];
+        id=['notype-id-node', {type:$1,name:$2}];
         $$=['listaparametroscont-node',{},id,$4];
     }}
   | Tipo ID '['']' ',' ListaParametrosCont
@@ -274,7 +276,7 @@ Comando
     }}
   | ESCREVA Expr ';'
     {{
-      expr=['comando-expr-node',{},$2]
+      expr=['comando-expr-vector-node',{},$2]
       $$=['comando-escreva-node',{},expr];
     }}
   | ESCREVA CADEIACARACTERES ';'

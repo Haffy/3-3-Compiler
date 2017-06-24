@@ -1,45 +1,72 @@
-
 var parser = require('./grammar').parser;
 
-var program ='int selectionSort (int vet[], int n){\
-  int i,j, x, Min;\
-  i=1;\
-  enquanto( i<=n-1) execute{\
-	Min=i;\
-	j=i+1;\
-	enquanto (j<=n) execute {\
-		se (vet[j] < vet[Min])\
-		entao\
-		   Min=j;\
-		j=j+1;\
-	}\
-	x=vet[Min]; vet[Min]=vet[i]; vet[i]=x;\
-  	i=i+1;\
-  }\
-  retorne 1;\
+var test=require('./test');
+// var program=test.code;
+// var program = 'int selectionSort (int vet[], int n){\
+//   int i,j, x, Min;\
+//   i=1;\
+//   enquanto( i<=n-1) execute{\
+// 	Min=i;\
+// 	j=i+1;\
+// 	enquanto (j<=n) execute {\
+// 		se (vet[j] <= vet[Min])\
+// 		entao\
+// 		   Min=j;\
+// 		j=j+1;\
+// 	}\
+// 	x=vet[Min]; vet[Min]=vet[i]; vet[i]=x;\
+//   	i=i+1;\
+//   }\
+//   retorne 1;\
+// }\
+// programa{\
+//    int vet[10];\
+//    int i;\
+//    escreva "Digite os valores de um vetor de 10 inteiros" ;\
+//    novalinha;\
+//    i=0;\
+//    enquanto (i<10)execute{\
+// 	escreva "Digite o valor do elemento ";\
+// 	escreva i;\
+// 	novalinha;\
+// 	leia vet[i];\
+// 	i=i+1;\
+// }\
+//    selectionSort(vet, 10);\
+//    escreva "Vetor ordenado: ";\
+//    novalinha;\
+//    i=0;\
+//    enquanto (i<10) execute{\
+// 	escreva vet[i];\
+// 	escreva " " ;\
+// 	i=i+1;\
+// }\
+// }\
+// ';
+
+var program = 'int fatorial (int n){\
+	se (n==0)\
+	entao\
+		retorne 1;\
+	senao\
+		retorne n* fatorial(n-1);\
 }\
-programa{\
-   int vet[10];\
-   int i;\
-   escreva "Digite os valores de um vetor de 10 inteiros" ;\
-   novalinha;\
-   i=0;\
-   enquanto (i<10)execute{\
-	escreva "Digite o valor do elemento ";\
-	escreva i;\
+\
+programa {\
+int n;\
+n = 1-0;\
+enquanto (n<0) execute {\
+       escreva "digite um numero";\
+       novalinha;\
+       leia n;    \
+}	\
+\
+	escreva "O fatorial de ";\
+	escreva n;\
+        escreva " e: ";\
+	escreva fatorial(n);\
 	novalinha;\
-	leia vet[i];\
-	i=i+1;\
-}\
-   selectionSort(vet, 10);\
-   escreva "Vetor ordenado: ";\
-   novalinha;\
-   i=0;\
-   enquanto (i<10) execute{\
-	escreva vet[i];\
-	escreva " " ;\
-	i=i+1;\
-}\
+\
 }\
 ';
 
@@ -60,7 +87,7 @@ listaparametroscont-node
 listadeclvar-node
 int-node
 car-node
-listacomando-node
+listacomando-nodew
 
 comando-vazio-node
 comando-expr-node
@@ -110,7 +137,7 @@ function codegen(ast) {
   if (ast)
     switch (ast[0]) {
       case 'programa-node':
-        return codegen(ast[2]) + '\nmain()' + codegen(ast[3]);
+        return codegen(ast[2]) + '\nmain =function()' + codegen(ast[3]) + '\nmain(); '
 
       case 'id-node':
         return "var " + ast[1].name;
@@ -119,16 +146,16 @@ function codegen(ast) {
         return "var " + ast[1].name + "= new Array(" + codegen(ast[1].size) + ")";
 
       case 'declfuncvar-node':
-        return codegen(ast[3]) + codegen(ast[4]) + ';\n' + codegen(ast[5]);
+        return codegen(ast[3]) + codegen(ast[4]) + '\n' + codegen(ast[5]);
 
       case 'declprog-node':
-        return codegen(ast[2]) + ';\n';
+        return codegen(ast[2]) + '\n';
 
       case 'intconst-node':
         return ast[1].val;
 
       case 'declvar-node':
-        return ' , '+ codegen(ast[2])+ codegen(ast[3]);
+        return ' , ' + codegen(ast[2]) + codegen(ast[3]);
 
       case 'notype-id-node':
         return ast[1].name;
@@ -137,7 +164,7 @@ function codegen(ast) {
         return ast[1].name + "= new Array(" + codegen(ast[1].size) + ")";
 
       case 'declfunc-node':
-        return '(' + codegen(ast[2]) + ')' + codegen(ast[3]);
+        return '=function(' + codegen(ast[2]) + ')' + codegen(ast[3]);
 
       case 'listaparametros-node':
         return codegen(ast[2]);
@@ -146,7 +173,7 @@ function codegen(ast) {
         return codegen(ast[2]) + ' , ' + codegen(ast[3]);
 
       case 'nosize-vector-node':
-        return ast[1].name + '[]';
+        return ast[1].name;
 
       case 'bloco-listacomando-node':
         return '{\n' + codegen(ast[2]) + '\n' + codegen(ast[3]) + '\n}\n';
@@ -159,7 +186,7 @@ function codegen(ast) {
         return codegen(ast[2]) + ' ' + codegen(ast[3]) + ';\n' + codegen(ast[4]);
 
       case 'comando-node':
-        return codegen(ast[2]);
+        return codegen(ast[2]) + ';\n';
 
       case 'listacomando-node':
         return codegen(ast[2]) + ' ' + codegen(ast[3]);
@@ -171,31 +198,32 @@ function codegen(ast) {
         return ast[1].val;
 
       case 'comando-vazio-node':
-        return ';\n';
+        return ';';
 
       case 'comando-expr-node':
         return codegen(ast[2]) + ';\n';
 
       case 'comando-retorne-node':
-        return 'return ' + codegen(ast[2]) + ';\n';
+        return 'return ' + codegen(ast[2]);
 
       case 'comando-leia-node':
-        return codegen(ast[2]) + '=prompt();\n';
+
+        return codegen(ast[2]) + '=parseInt(prompt());\n';
 
       case 'comando-escreva-node':
         return 'console.log(' + codegen(ast[2]) + ');\n';
 
       case 'comando-novalinha-node':
-        return 'console.log("");\n';
+        return ' ';
 
       case 'comando-seentao-node':
-        return 'if(' + codegen(ast[2]) + ')' + codegen(ast[3]);
+        return 'if(' + codegen(ast[2]) + '){\n' + codegen(ast[3]) + '}\n';
 
       case 'comando-seentaosenao':
-        return 'if(' + codegen(ast[2]) + ')' + codegen(ast[3]) + 'else ' + codegen(ast[4]);
+        return 'if(' + codegen(ast[2]) + '){\n' + codegen(ast[3]) + '}\nelse{ ' + codegen(ast[4]) + '}\n';
 
       case 'comando-enquanto-node':
-        return 'while(' + codegen(ast[2]) + ')' + codegen(ast[3]);
+        return 'while(' + codegen(ast[2]) + ')' + codegen(ast[3]) + '\n';
 
       case 'assignexpr-node':
         return codegen(ast[2]) + ' = ' + codegen(ast[3]);
@@ -263,9 +291,11 @@ function codegen(ast) {
       case 'listexpr-node':
         return codegen(ast[2]) + ' , ' + codegen(ast[3]);
 
-        case 'null':
+      case 'null':
         return '';
 
+      case 'comando-expr-vector-node':
+        return codegen(ast[2]);
 
 
       default:
