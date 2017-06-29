@@ -886,11 +886,11 @@ case 0: /* ignore spaces*/
 break;
 case 1:  /* ignore comments */  
 break;
-case 2:throw new SyntaxError('ERRO: COMENTÁRIO NÃO TERMINA (L'+yy_.yylineno+')')
+case 2:throw new SyntaxError('ERRO: COMENTÁRIO NÃO TERMINA (L'+yy_.yylineno+1+')')
 break;
 case 3: return 68
 break;
-case 4:throw new SyntaxError('ERRO: CADEIA DE CARACTERES OCUPA MAIS DE UMA LINHA (L'+yy_.yylineno+')')
+case 4:throw new SyntaxError('ERRO: CADEIA DE CARACTERES OCUPA MAIS DE UMA LINHA (L'+yy_.yylineno+1+')')
 break;
 case 5: return 33
 break;
@@ -982,7 +982,7 @@ case 48: /* ignore*/
 break;
 case 49: /* ignore*/ 
 break;
-case 50:throw new SyntaxError('ERRO: CARACTERE INVÁLIDO (' +yy_.yytext+ ', L' +yy_.yylineno+')')
+case 50:throw new SyntaxError('ERRO: CARACTERE INVÁLIDO (' +yy_.yytext+ ', L' +yy_.yylineno+1+')')
 break;
 }
 },

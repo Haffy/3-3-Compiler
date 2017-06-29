@@ -3,9 +3,9 @@
 
 \s+         { /* ignore spaces*/ }
 \/\*.*\*\/  {  /* ignore comments */  }
-\/\*.*      {throw new SyntaxError('ERRO: COMENTÁRIO NÃO TERMINA (L'+yylineno+')')}
+\/\*.*      {throw new SyntaxError('ERRO: COMENTÁRIO NÃO TERMINA (L'+yylineno+1+')')}
 \"[a-zA-Z]\" { return 'CARCONST'}
-\".*\n.*\" {throw new SyntaxError('ERRO: CADEIA DE CARACTERES OCUPA MAIS DE UMA LINHA (L'+yylineno+')')}
+\".*\n.*\" {throw new SyntaxError('ERRO: CADEIA DE CARACTERES OCUPA MAIS DE UMA LINHA (L'+yylineno+1+')')}
 \"[_a-zA-Z0-9 :]*\"     { return 'CADEIACARACTERES'}
 "car"	    	{ return 'CAR';}
 "e"			    { return 'E';}
@@ -51,7 +51,7 @@
 \r          { /* ignore*/ }
 \t          { /* ignore*/ }
 <<EOF>>         { /* ignore*/ }
-.*          {throw new SyntaxError('ERRO: CARACTERE INVÁLIDO (' +yytext+ ', L' +yylineno+')')}
+.*          {throw new SyntaxError('ERRO: CARACTERE INVÁLIDO (' +yytext+ ', L' +yylineno+1+')')}
 
 /lex
 

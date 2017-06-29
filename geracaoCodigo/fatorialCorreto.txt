@@ -16,7 +16,7 @@ programa {
        		leia n;
 	        escreva "O fatorial de ";
 	        escreva n;
-	        escreva " é: ";
+	        escreva " e: ";
 	        escreva fatorial(n);
 	        novalinha;
   }
