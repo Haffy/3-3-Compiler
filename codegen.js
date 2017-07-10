@@ -9,7 +9,7 @@ var fs = require('fs'),
   filename = process.argv[2];
 fs.readFile(filename, 'utf8', function(err, program) {
   if (err) throw err;
-console.log('************************ CODIGO EM CAFEZINHO\n'+program+'\n\n\n\n');
+console.log('\n************************ CODIGO EM CAFEZINHO\n'+program+'\n\n\n\n');
 
   /*
   programa-node
@@ -67,13 +67,13 @@ console.log('************************ CODIGO EM CAFEZINHO\n'+program+'\n\n\n\n')
 
   function main() {
     var ast = parser.parse(program);
-    console.log('#################### ARVORE SINTATICA ABSTRATA\n');
+    console.log('#################### ARVORE SINTATICA ABSTRATA\n\n');
 		console.log(ast);
 		console.log('\n\n\n')
 // console.log(ast)
     var source = codegen(ast);
 
-    console.log(source);
+    console.log('##################### CODIGO EM JS\n\n'+source+'\n\n');
   }
 
   function codegen(ast) {

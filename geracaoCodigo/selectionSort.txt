@@ -1,7 +1,7 @@
 
 int selectionSort (int vet[], int n){
   int i,j, x, Min;
-  i=1;
+  i=0;
   enquanto( i<=n-1) execute{
 	Min=i;
 	j=i+1;
@@ -13,7 +13,7 @@ int selectionSort (int vet[], int n){
 	}
 	x=vet[Min]; vet[Min]=vet[i]; vet[i]=x;
   	i=i+1;
-  }  
+  }
   retorne 1;
 }
 programa{
@@ -28,7 +28,7 @@ programa{
 	novalinha;
 	leia vet[i];
 	i=i+1;
-   } 
+   }
    selectionSort(vet, 10);
    escreva "Vetor ordenado: ";
    novalinha;
@@ -39,5 +39,3 @@ programa{
 	i=i+1;
    }
 }
-
-

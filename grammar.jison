@@ -57,60 +57,7 @@
 
 
 %%
-/*
-programa-node v
-id-node v
-vector-node v
-declfuncvar-node v
-declprog-node v
-intconst-node v
-declvar-node v
-notype-id-node v
-notype-vector-node v
-declfunc-node v
-listaparametros-node v
-nosize-vector-node v
-bloco-node v
-listaparametroscont-node v
-listadeclvar-node v
-comando-node v
-listacomando-node v
-intconst-node v
-carconst-node v
 
-comando-vazio-node v
-comando-expr-node v
-comando-retorne-node v
-comando-leia-node v
-comando-escreva-node v
-comando-novalinha-node v
-comando-seentao-node v
-comando-seentaosenao v
-comando-enquanto-node v
-assignexpr-node v
-assignexpr-vector-node v
-or-node v
-and-node v
-equals-node v
-dif-node v
-'less-node' v
-'greater-node' v
-'greater-equals-node' v
-'less-equals-node' v
-'plus-node' v
-'minus-node' v
-'multiplication-node' v
-'division-node' v
-'modulus-node' v
-'negation-node' v
-'no-node' v
-'access-vector-node' v
-'function-node' v
-'string-node' v
-'listexpr-node' v
-comando-expr-vector-nodev
-null v
-*/
 Programa
   : DeclFuncVar DeclProg
      {{ $$=['programa-node', {},$1,$2]; return $$ }}
