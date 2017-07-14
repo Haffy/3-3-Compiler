@@ -884,97 +884,97 @@ var YYSTATE=YY_START;
 switch($avoiding_name_collisions) {
 case 0: /* ignore spaces*/ 
 break;
-case 1:  /* ignore comments */  
+case 1: /* ignore spaces*/ 
 break;
-case 2:throw new SyntaxError('ERRO: COMENTÁRIO NÃO TERMINA (L'+yy_.yylineno+1+')')
+case 2:  /* ignore comments */  
 break;
-case 3: return 68
+case 3:throw new SyntaxError('ERRO: COMENTÁRIO NÃO TERMINA (L'+yy_.yylineno+1+')')
 break;
-case 4:throw new SyntaxError('ERRO: CADEIA DE CARACTERES OCUPA MAIS DE UMA LINHA (L'+yy_.yylineno+1+')')
+case 4: return 68
 break;
-case 5: return 33
+case 5:throw new SyntaxError('ERRO: CADEIA DE CARACTERES OCUPA MAIS DE UMA LINHA (L'+yy_.yylineno+1+')')
 break;
-case 6: return 26;
+case 6: return 33
 break;
-case 7: return 48;
+case 7: return 26;
 break;
-case 8: return 38;
+case 8: return 48;
 break;
-case 9: return 36;
+case 9: return 38;
 break;
-case 10: return 32;
+case 10: return 36;
 break;
-case 11: return 39;
+case 11: return 32;
 break;
-case 12: return 25;
+case 12: return 39;
 break;
-case 13: return 30;
+case 13: return 25;
 break;
-case 14: return 34;
+case 14: return 30;
 break;
-case 15: return 14;
+case 15: return 34;
 break;
-case 16: return 29;
+case 16: return 14;
 break;
-case 17: return 35;
+case 17: return 29;
 break;
-case 18: return 37;
+case 18: return 35;
 break;
-case 19: return 46;
+case 19: return 37;
 break;
-case 20: return 11; 
+case 20: return 46;
 break;
-case 21: return 7; 
+case 21: return 11; 
 break;
-case 22: return 56;
+case 22: return 7; 
 break;
-case 23: return 57;
+case 23: return 56;
 break;
-case 24: return 50;
+case 24: return 57;
 break;
-case 25: return 52;
+case 25: return 50;
 break;
-case 26: return 53;
+case 26: return 52;
 break;
-case 27: return 55;
+case 27: return 53;
 break;
-case 28: return 42;
+case 28: return 55;
 break;
-case 29: return 9;
+case 29: return 42;
 break;
-case 30: return 16;
+case 30: return 9;
 break;
-case 31: return 45;
+case 31: return 16;
 break;
-case 32: return 17;
+case 32: return 45;
 break;
-case 33: return 19;
+case 33: return 17;
 break;
-case 34: return 10;
+case 34: return 19;
 break;
-case 35: return 12;
+case 35: return 10;
 break;
-case 36: return 21;
+case 36: return 12;
 break;
-case 37: return 24;
+case 37: return 21;
 break;
-case 38: return 58;
+case 38: return 24;
 break;
-case 39: return 60;
+case 39: return 58;
 break;
-case 40: return 61;
+case 40: return 60;
 break;
-case 41: return 63;
+case 41: return 61;
 break;
-case 42: return 64;
+case 42: return 63;
 break;
-case 43: return 44;
+case 43: return 64;
 break;
-case 44: return 66;
+case 44: return 44;
 break;
-case 45: /* ignore break line*/ 
+case 45: return 66;
 break;
-case 46: /* ignore*/ 
+case 46: /* ignore break line*/ 
 break;
 case 47: /* ignore*/ 
 break;
@@ -982,12 +982,14 @@ case 48: /* ignore*/
 break;
 case 49: /* ignore*/ 
 break;
-case 50:throw new SyntaxError('ERRO: CARACTERE INVÁLIDO (' +yy_.yytext+ ', L' +yy_.yylineno+1+')')
+case 50: /* ignore*/ 
+break;
+case 51:throw new SyntaxError('ERRO: CARACTERE INVÁLIDO (' +yy_.yytext+ ', L' +yy_.yylineno+1+')')
 break;
 }
 },
-rules: [/^(?:\s+)/,/^(?:\/\*.*\*\/)/,/^(?:\/\*.*)/,/^(?:"[a-zA-Z]")/,/^(?:".*\n.*")/,/^(?:"[_a-zA-Z0-9 :]*")/,/^(?:car\b)/,/^(?:e\b)/,/^(?:enquanto\b)/,/^(?:entao\b)/,/^(?:escreva\b)/,/^(?:execute\b)/,/^(?:int\b)/,/^(?:leia\b)/,/^(?:novalinha\b)/,/^(?:programa\b)/,/^(?:retorne\b)/,/^(?:se\b)/,/^(?:senao\b)/,/^(?:ou\b)/,/^(?:[0-9]+)/,/^(?:[a-zA-Z_][_a-zA-Z0-9]*)/,/^(?:>=)/,/^(?:<=)/,/^(?:==)/,/^(?:!=)/,/^(?:<)/,/^(?:>)/,/^(?:=)/,/^(?:;)/,/^(?:,)/,/^(?::)/,/^(?:\()/,/^(?:\))/,/^(?:\[)/,/^(?:\])/,/^(?:\{)/,/^(?:\})/,/^(?:\+)/,/^(?:-)/,/^(?:\*)/,/^(?:\/)/,/^(?:%)/,/^(?:\?)/,/^(?:!)/,/^(?:\n)/,/^(?:\f)/,/^(?:\r)/,/^(?:\t)/,/^(?:$)/,/^(?:.*)/],
-conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],"inclusive":true}}
+rules: [/^(?:\s+)/,/^(?:\n+)/,/^(?:\/\*(.|\n)*\*\/)/,/^(?:\/\*.*)/,/^(?:"[a-zA-Z]")/,/^(?:".*\n.*")/,/^(?:"[_a-zA-Z0-9 :]*")/,/^(?:car\b)/,/^(?:e\b)/,/^(?:enquanto\b)/,/^(?:entao\b)/,/^(?:escreva\b)/,/^(?:execute\b)/,/^(?:int\b)/,/^(?:leia\b)/,/^(?:novalinha\b)/,/^(?:programa\b)/,/^(?:retorne\b)/,/^(?:se\b)/,/^(?:senao\b)/,/^(?:ou\b)/,/^(?:[0-9]+)/,/^(?:[a-zA-Z_][_a-zA-Z0-9]*)/,/^(?:>=)/,/^(?:<=)/,/^(?:==)/,/^(?:!=)/,/^(?:<)/,/^(?:>)/,/^(?:=)/,/^(?:;)/,/^(?:,)/,/^(?::)/,/^(?:\()/,/^(?:\))/,/^(?:\[)/,/^(?:\])/,/^(?:\{)/,/^(?:\})/,/^(?:\+)/,/^(?:-)/,/^(?:\*)/,/^(?:\/)/,/^(?:%)/,/^(?:\?)/,/^(?:!)/,/^(?:\n)/,/^(?:\f)/,/^(?:\r)/,/^(?:\t)/,/^(?:$)/,/^(?:.*)/],
+conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51],"inclusive":true}}
 });
 return lexer;
 })();

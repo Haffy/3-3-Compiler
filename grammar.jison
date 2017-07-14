@@ -2,7 +2,8 @@
 %%
 
 \s+         { /* ignore spaces*/ }
-\/\*.*\*\/  {  /* ignore comments */  }
+\n+          { /* ignore spaces*/ }
+\/\*(.|\n)*\*\/  {  /* ignore comments */  }
 \/\*.*      {throw new SyntaxError('ERRO: COMENTÁRIO NÃO TERMINA (L'+yylineno+1+')')}
 \"[a-zA-Z]\" { return 'CARCONST'}
 \".*\n.*\" {throw new SyntaxError('ERRO: CADEIA DE CARACTERES OCUPA MAIS DE UMA LINHA (L'+yylineno+1+')')}
